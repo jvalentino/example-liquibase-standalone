@@ -30,6 +30,12 @@ This will create environment variables for:
 - CC_DB_PASSWORD
 - CC_JDBC_URL
 
+You then launch the local container:
+
+```bash
+docker compose up -d
+```
+
 You then have to create the initial database using pgadmin
 
 ![01](wiki/01.png)
