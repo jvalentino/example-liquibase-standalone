@@ -136,3 +136,9 @@ INSERT INTO settings(gender, label, quantity) VALUES ('Female', 'Shrugs', 2);
 INSERT INTO settings(gender, label, quantity) VALUES ('Female', 'Sweaters', 2);
 INSERT INTO settings(gender, label, quantity) VALUES ('Female', 'Dress', 1);
 INSERT INTO settings(gender, label, quantity) VALUES ('Female', 'School Supplies and Backpack', 1);
+
+-- changeset liquibase:3
+CREATE TABLE accepted_id (
+    id VARCHAR(256),
+    PRIMARY KEY (id)
+);
