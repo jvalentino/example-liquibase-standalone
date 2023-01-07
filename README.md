@@ -64,5 +64,11 @@ Liquibase command 'status' was executed successfully.
 ~/workspaces/personal/clothes-closet-db $
 ```
 
+# Running it
 
+```bash
+./update.sh
+```
+
+This will apply all the needed updates from changelog.sql to the current database per the enviromment variables.
 
