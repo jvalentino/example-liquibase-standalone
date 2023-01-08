@@ -11,6 +11,7 @@ brew install --cask docker
 brew install --cask pgadmin4
 brew install liquibase
 brew install docker-compose
+brew install pssql
 ```
 
 When in doubt, run https://github.com/jvalentino/setup-automation
@@ -77,4 +78,34 @@ Liquibase command 'status' was executed successfully.
 ```
 
 This will apply all the needed updates from changelog.sql to the current database per the enviromment variables.
+
+# Heroku Setup
+
+FIrst, this has to be attached to a specific app, so you first have to go about creating the application., which I called `clothes-closet-rest` and is associated with https://github.com/jvalentino/clothes-closet-rest.
+
+```bash
+$ heroku addons:create heroku-postgresql:basic --app clothes-closet-rest
+
+Creating heroku-postgresql:basic on ⬢ clothes-closet-rest... $9/month
+Database has been created and is available
+ ! This database is empty. If upgrading, you can transfer
+ ! data from another database with pg:copy
+
+Created postgresql-adjacent-91726 as DATABASE_URL
+Use heroku addons:docs heroku-postgresql to view documentation
+```
+
+You then can only access it via the Heroku CLI:
+
+```bash
+$ heroku pg:psql --app clothes-closet-rest
+ ›   Warning: heroku update available from 7.60.2 to 7.67.1.
+--> Connecting to postgresql-adjacent-91726
+psql (14.6 (Homebrew))
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+clothes-closet-rest::DATABASE=> 
+
+```
 

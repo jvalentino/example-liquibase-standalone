@@ -99,13 +99,13 @@ CREATE TABLE visit (
     coats int,
     backpacks int,
     misc int,
+    happened boolean,
     PRIMARY KEY (id),
     FOREIGN KEY (appointment_id) REFERENCES appointment (id) ON DELETE CASCADE ON UPDATE CASCADE, 
     FOREIGN KEY (student_id) REFERENCES student (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (person_id) REFERENCES person (id) ON DELETE CASCADE ON UPDATE CASCADE      
 );
 
--- changeset liquibase:2
 CREATE TABLE settings (
     id SERIAL,
     gender VARCHAR(256),
@@ -137,7 +137,6 @@ INSERT INTO settings(gender, label, quantity) VALUES ('Female', 'Sweaters', 2);
 INSERT INTO settings(gender, label, quantity) VALUES ('Female', 'Dress', 1);
 INSERT INTO settings(gender, label, quantity) VALUES ('Female', 'School Supplies and Backpack', 1);
 
--- changeset liquibase:3
 CREATE TABLE accepted_id (
     id VARCHAR(256),
     PRIMARY KEY (id)
